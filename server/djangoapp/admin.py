@@ -11,7 +11,8 @@ class CarModelAdmin(admin.ModelAdmin):
 class CarMakeAdmin(admin.ModelAdmin):
     inlines = [CarModelInline]
     fields = ('name',)
-    
+
+
 # Register models here
 admin.site.register(CarMake, CarMakeAdmin)
 admin.site.register(CarModel, CarModelAdmin)
