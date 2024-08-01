@@ -5,8 +5,10 @@ from .models import CarMake, CarModel
 class CarModelInline(admin.StackedInline):
     model = CarModel
 
+
 class CarModelAdmin(admin.ModelAdmin):
     fields = ('name',)
+
 
 class CarMakeAdmin(admin.ModelAdmin):
     inlines = [CarModelInline]
