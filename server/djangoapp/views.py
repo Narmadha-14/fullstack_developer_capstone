@@ -1,6 +1,6 @@
 # Uncomment the required imports before adding the code
 
-from django.shortcuts import render
+# from django.shortcuts import render
 # from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 # from django.shortcuts import get_object_or_404, render, redirect
@@ -31,7 +31,7 @@ def login_user(request):
     username = data['userName']
     password = data['password']
     # Try to check if provide credential can be authenticated
-    user = authenticate(username= username, password= password)
+    user = authenticate(username=username, password=password)
     data = {"userName": username}
     if user is not None:
         # If user is valid, call login method to login current user
@@ -42,7 +42,7 @@ def login_user(request):
 
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
-    data = {"userName":""}
+    data = {"userName": ""}
     return JsonResponse(data)
 
 
@@ -50,7 +50,7 @@ def logout_request(request):
 # @csrf_exempt
 @csrf_exempt
 def registration(request):
-    context = {}
+    # context = {}
     data = json.loads(request.body)
     username = data['userName']
     password = data['password']
@@ -58,10 +58,10 @@ def registration(request):
     last_name = data['lastName']
     email = data['email']
     username_exist = False
-    email_exist = False
+    # email_exist = False
     try:
         # Check if user already exists
-        User.objects.get(username= username)
+        User.objects.get(username=username)
         username_exist = True
     except:
         # If not, simply log this is a new user
@@ -70,7 +70,8 @@ def registration(request):
     # If it is a new user
     if not username_exist:
         # Create user in auth_user table
-        user = User.objects.create_user(username= username, first_name= first_name, last_name= last_name,password= password, email= email)
+        user = User.objects.create_user(username=username, first_name=first_name,
+                                        last_name=last_name, password=password, email=email)
         # Login the user and redirect to list page
         login(request, user)
         data = {"userName": username,"status": "Authenticated"}
