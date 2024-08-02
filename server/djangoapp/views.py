@@ -63,7 +63,8 @@ def registration(request):
         # Check if user already exists
         User.objects.get(username=username)
         username_exist = True
-    except:
+    except Exception as err:
+        print(f"Unexpected {err=}, {type(err)=}")
         # If not, simply log this is a new user
         logger.debug("{} is new user".format(username))
 
@@ -149,8 +150,10 @@ def add_review(request):
         data = json.loads(request.body)
         try:
             response = post_review(data)
+            print(response)
             return JsonResponse({"status": 200})
-        except:
+        except Exception as err:
+            print(f"Unexpected {err=}, {type(err)=}")
             return JsonResponse({"status": 401,
                                  "message": "Error in posting review"})
     else:
