@@ -15,7 +15,7 @@ After thorough research and brainstorming, the team developed use cases for anon
 	6.View all states if nothing is selected in the dropdown.
 	7.View a table of dealerships for the selected state when the form is submitted.
 	8.Click on a dealership to view the reviews for that dealership on the details page with each review displayed on a bootstrap card.
-	Log in using their credentials.
+	9.Log in using their credentials.
 
 ## Use cases for authorized users:
 	In addition to the above, authorized users should be able to write a review for any dealership on the dealership's page. In order to enable authorized users to write their reviews:
@@ -75,7 +75,7 @@ The solution will consist of multiple technologies:
 	5."Dealerships Website" interacts with the "Dealership and Reviews Service" through the "Django Proxy Service" contained within the Django Application.	
 	6.The "Sentiment Analyzer Service" is deployed on IBM Cloud Code Engine, it provides the following service:	
 		/analyze/:text - To analyze the sentiment of the text passed. It returns positive, negative or neutral.
-	7.The "Dealerships Website" consumes the "Sentiment Analyzer Service" to analyze the sentiments of the reviews through the Django Proxy contained within the Django 	  application.
+	7.The "Dealerships Website" consumes the "Sentiment Analyzer Service" to analyze the sentiments of the reviews through the Django Proxy contained within the Django application.
 
  ![image](https://github.com/user-attachments/assets/02e376c4-02aa-4bff-be8c-04d26ac9dbb4)
 
