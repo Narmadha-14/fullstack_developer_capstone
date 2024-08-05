@@ -59,13 +59,13 @@ The solution will consist of multiple technologies:
 
 	1.The user interacts with the "Dealerships Website", a Django website, through a web browser.
 	2.The Django application provides the following microservices for the end user:
-	3.get_cars/ - To get the list of cars from
+	        get_cars/ - To get the list of cars from
 		get_dealers/ - To get the list of dealers
 		get_dealers/:state - To get dealers by state
 		dealer/:id - To get dealer by id
 		review/dealer/:id - To get reviews specific to a dealer
 		add_review/ - To post review about a dealer
-		The Django application uses SQLite database to store the **Car Make** and the **Car Model** data.
+	3.The Django application uses SQLite database to store the **Car Make** and the **Car Model** data.
 	4.The "Dealerships and Reviews Service" is an Express Mongo service running in a Docker container. It provides the following services:
 		/fetchDealers - To fetch the dealers
 		/fetchDealer/:id - To fetch the dealer by id
